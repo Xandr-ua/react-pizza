@@ -2,17 +2,26 @@ import React from 'react';
 import './Filter.scss';
 
 function Filter() {
+  const [itemIndex, setItemActive] = React.useState(0);
+
+  const categorias = ['Всі', "М'ясні", 'Вегетаріанські', 'Гриль', 'Гострі', 'Закриті'];
+
+  const addActiveClass = (index) => {
+    setItemActive(index);
+  };
+
   return (
     <div className="filter">
       <div className="container">
         <div className="filter__wrap">
           <ul className="filter__list">
-            <li className="filter__item filter__item-active">Всі</li>
-            <li className="filter__item">М'ясні</li>
-            <li className="filter__item">Вегетаріанські</li>
-            <li className="filter__item">Гриль</li>
-            <li className="filter__item">Гострі</li>
-            <li className="filter__item">Закриті</li>
+            {categorias.map((value, index) => (
+              <li
+                onClick={() => addActiveClass(index)}
+                className={`filter__item ${itemIndex === index ? 'filter__item-active' : ''}`}>
+                {value}
+              </li>
+            ))}
           </ul>
           <div className="filter__sort">
             <p className="filter__sort-text">

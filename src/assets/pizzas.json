@@ -1,0 +1,42 @@
+ [
+  {
+    "id": 0,
+    "imageUrl": "/img/pizza/pizza-1.jpg",
+    "title": "Ростбіф",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 256,
+    "category": 0,
+    "rating": 4
+  },
+  {
+    "id": 1,
+    "imageUrl": "/img/pizza/pizza-2.jpg",
+    "title": "4 Сири",
+    "types": [1],
+    "sizes": [26, 30, 40],
+    "price": 236,
+    "category": 0,
+    "rating": 4
+  },
+  {
+    "id": 2,
+    "imageUrl": "/img/pizza/pizza-3.jpg",
+    "title": "Капрічоза",
+    "types": [0],
+    "sizes": [30, 40],
+    "price": 213,
+    "category": 0,
+    "rating": 4
+  },
+  {
+    "id": 3,
+    "imageUrl": "/img/pizza/pizza-4.jpg",
+    "title": "Козацька",
+    "types": [0, 1],
+    "sizes": [26, 40],
+    "price": 223,
+    "category": 0,
+    "rating": 4
+  }
+ ]

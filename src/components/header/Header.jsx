@@ -10,7 +10,7 @@ function Header() {
             <img className="header__logo-img" src="/img/icons/logo.svg" alt="logo" />
             <div className="header__logo-content">
               <h1 className="header__logo-title">REACT PIZZA</h1>
-              <p className="header__logo-text">сама найсмачніша піцца в всесвіті)</p>
+              <p className="header__logo-text">сама найсмачніша піца в всесвіті)</p>
             </div>
           </div>
           <ul className="header__list">
