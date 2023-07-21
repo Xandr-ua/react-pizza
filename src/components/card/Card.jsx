@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './Card.scss';
 
 function Card({ title, price, image, sizes, dough }) {
@@ -11,10 +12,6 @@ function Card({ title, price, image, sizes, dough }) {
   const [doughItem, setDoughActive] = React.useState(0);
   const typeName = ['тонке', 'традиційне'];
 
-  // const doughAddActive = (index) => {
-  //   setDoughActive(index);
-  // };
-
   return (
     <li className="main__item">
       <img className="main__img" src={image} alt="pizza" />
@@ -24,6 +21,7 @@ function Card({ title, price, image, sizes, dough }) {
           <ul className="main__contant-filter-dough">
             {dough.map((dough) => (
               <li
+                key={dough}
                 onClick={() => setDoughActive(dough)}
                 className={`main__contant-filter-dough-item ${
                   doughItem === dough ? 'main__contant-filter-dough-item-active' : ''
@@ -31,14 +29,11 @@ function Card({ title, price, image, sizes, dough }) {
                 {typeName[dough]}
               </li>
             ))}
-            {/* <li className="main__contant-filter-dough-item main__contant-filter-dough-item-active">
-              тонке
-            </li>
-            <li className="main__contant-filter-dough-item">традиційне</li> */}
           </ul>
           <ul className="main__contant-filter-size">
             {sizes.map((size, index) => (
               <li
+                key={size}
                 onClick={() => sizeAddActive(index)}
                 className={`main__contant-filter-size-item ${
                   sizeItem === index ? 'main__contant-filter-size-item-active' : ''

@@ -84,21 +84,20 @@
     position: absolute;
     right: 0;
     bottom: -170px;
-    width: 70%;
-    visibility: hidden;
-    opacity: 0;
+    width: 150px;
   }
 
   &__sort-item {
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 0.21px;
-    color: #FE5F1E;
+    color: #000;
     padding: 10px 14px;
     transition: all 0.3s;
     cursor: pointer;
 
     &-active {
+      color: #FE5F1E;
       background-color: rgba(254, 95, 30, 0.05);
     }
 
