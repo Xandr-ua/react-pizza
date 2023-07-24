@@ -8,9 +8,19 @@ import Card from '../card/Card';
 function Main() {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [categoryId, setCategoryId] = React.useState(0);
+  const [sortType, setSortType] = React.useState({
+    name: 'популярності',
+    sortName: 'rating',
+  });
 
   React.useEffect(() => {
-    fetch('https://64ad14e7b470006a5ec550a2.mockapi.io/items')
+    setIsLoading(true);
+    fetch(
+      `https://64ad14e7b470006a5ec550a2.mockapi.io/items?${
+        categoryId > 0 ? `category=${categoryId}` : ''
+      }&sortBy=${sortType.sortName}&order=desc`,
+    )
       .then((res) => {
         return res.json();
       })
@@ -18,11 +28,16 @@ function Main() {
         setItems(arr);
         setIsLoading(false);
       });
-  }, []);
+  }, [categoryId, sortType]);
 
   return (
     <>
-      <Filter />
+      <Filter
+        categoryId={categoryId}
+        onClickCategory={(index) => setCategoryId(index)}
+        sortType={sortType}
+        onClickSort={(index) => setSortType(index)}
+      />
       <div className="main">
         <div className="container">
           <h3 className="main__title">Усі піци</h3>

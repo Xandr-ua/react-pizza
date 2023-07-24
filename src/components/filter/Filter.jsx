@@ -2,22 +2,18 @@ import React from 'react';
 
 import './Filter.scss';
 
-function Filter() {
-  const [itemIndex, setItemActive] = React.useState(0);
-
+function Filter({ categoryId, onClickCategory, sortType, onClickSort }) {
   const categorias = ['Всі', "М'ясні", 'Вегетаріанські', 'Гриль', 'Гострі', 'Закриті'];
 
-  const addActiveClass = (index) => {
-    setItemActive(index);
-  };
-
   const [openSort, setOpenSort] = React.useState(false);
-  const [select, setSelect] = React.useState(0);
-  const sortList = ['популярності', 'по ціні', 'по алфавіту'];
-  const sortName = sortList[select];
+  const sortList = [
+    { name: 'популярності', sortName: 'rating' },
+    { name: 'по ціні', sortName: 'price' },
+    { name: 'по алфавіту', sortName: 'title' },
+  ];
 
   const addActiveClassSelect = (index) => {
-    setSelect(index);
+    onClickSort(index);
     setOpenSort(false);
   };
 
@@ -29,8 +25,8 @@ function Filter() {
             {categorias.map((value, index) => (
               <li
                 key={index}
-                onClick={() => addActiveClass(index)}
-                className={`filter__item ${itemIndex === index ? 'filter__item-active' : ''}`}>
+                onClick={() => onClickCategory(index)}
+                className={`filter__item ${categoryId === index ? 'filter__item-active' : ''}`}>
                 {value}
               </li>
             ))}
@@ -39,19 +35,19 @@ function Filter() {
             <p className="filter__sort-text">
               Сортувати по:{' '}
               <span className="filter__sort-by" onClick={() => setOpenSort(!openSort)}>
-                {sortName}
+                {sortType.name}
               </span>
             </p>
             {openSort && (
               <ul className="filter__sort-list">
-                {sortList.map((value, index) => (
+                {sortList.map((obj, index) => (
                   <li
                     key={index}
-                    onClick={() => addActiveClassSelect(index)}
+                    onClick={() => addActiveClassSelect(obj)}
                     className={`filter__sort-item  ${
-                      select === index ? 'filter__sort-item-active' : ''
+                      sortType.sortName === obj.sortName ? 'filter__sort-item-active' : ''
                     }`}>
-                    {value}
+                    {obj.name}
                   </li>
                 ))}
               </ul>
