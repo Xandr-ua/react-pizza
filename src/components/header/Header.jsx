@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Search from '../search/Search';
 
 import './Header.scss';
 
-function Header() {
+function Header({ searchValue, setSearchValue }) {
   return (
     <header className="header">
       <div className="container">
@@ -15,6 +16,7 @@ function Header() {
               <p className="header__logo-text">сама найсмачніша піца в всесвіті)</p>
             </div>
           </Link>
+          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
           <Link to="cart">
             <ul className="header__list">
               <li className="header__item">
